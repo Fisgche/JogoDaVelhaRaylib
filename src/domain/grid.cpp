@@ -1,16 +1,7 @@
-class grid
-{
-private:
-    int gridArray[3][3];
-    bool checkWin();
-    void resetGrid();
-public:
-    
-    bool score(int player, int x, int y);
-    grid(){
-        resetGrid();
-    }
-};
+#include "grid.h"
+#include <iostream>
+
+using namespace tictactoe;
 
 void grid::resetGrid()
 {
@@ -22,6 +13,7 @@ void grid::resetGrid()
         }
     }
 }
+
 bool grid::checkWin()
 {
     // Check rows and columns
@@ -52,4 +44,24 @@ bool grid::score(int player, int x, int y)
         return checkWin();
     }
     return false;
+}
+
+void grid::printGrid()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            char mark;
+            if (gridArray[i][j] == 1)
+                mark = 'X';
+            else if (gridArray[i][j] == 2)
+                mark = 'O';
+            else
+                mark = '.';
+
+            std::cout << mark << " ";
+        }
+        std::cout << std::endl;
+    }
 }
