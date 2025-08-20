@@ -4,6 +4,7 @@ INCLUEDE_DIR 	= $(SRC_DIR)\include
 LIB_DIR 		= $(SRC_DIR)\lib
 SRC 			= $(SRC_DIR)\JogoDaVelha.cpp
 DOMAIN_SRC 		= $(SRC_DIR)\domain\grid.cpp
+DOMAIN_SRC 		+= $(SRC_DIR)\domain\player.cpp
 INCLUDE_FILES 	= $(SRC_DIR)\domain\grid.h
 
 BUILD 			= $(BUILD_DIR)\main.exe
