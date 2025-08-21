@@ -7,10 +7,10 @@ namespace tictactoe
     class grid
     {
         private:
-            int gridArray[3][3];
             bool checkWin();
             void resetGrid();
         public:
+            int gridArray[3][3];
             void printGrid();
             bool score(int player, int x, int y);
             grid(){
