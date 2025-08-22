@@ -1,6 +1,6 @@
 #include "raylib.h"
-#include "domain/grid.h"
-#include "domain/player.h"
+#include "grid.h"
+#include "player.h"
 
 using namespace tictactoe;
 
@@ -38,6 +38,7 @@ int main(void)
     const int screenHeight = 800;
     int winner = 0; // 0 for no winner, 1 for player 1, 2 for player 2
     int turnCount = 0; // To keep track of turns
+    int nextPlayer = 1; // To track the next player 
     bool isGameOver = false; // To track if the game is over
     int currentPlayer = 1; // Start with player 1
 
@@ -58,12 +59,14 @@ int main(void)
             if(player1.played == false)
             {
                 currentPlayer = 1;
+                nextPlayer = 2;
                 player1.played = true;
                 player2.played = false;
             }
             else
             {
                 currentPlayer = 2;
+                nextPlayer = 1;
                 player1.played = false;
                 player2.played = true;
             }
@@ -84,7 +87,7 @@ int main(void)
                 isGameOver = true;
                 std::cout << "It's a draw!" << std::endl;
             }
-            
+
             gameGrid.printGrid(); 
         }
 
@@ -94,7 +97,7 @@ int main(void)
             DrawText("Player 1: X", 10, 20, 10, DARKGRAY);
             DrawText("Player 2: O", 10, 30, 10, DARKGRAY);
             DrawText("Current Player: ", 10, 40, 10, DARKGRAY);
-            if(currentPlayer == 1)
+            if(nextPlayer == 1)
                 DrawText("X", 100, 40, 10, DARKGRAY);
             else
                 DrawText("O", 100, 40, 10, DARKGRAY);

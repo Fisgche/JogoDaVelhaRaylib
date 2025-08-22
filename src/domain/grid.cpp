@@ -1,6 +1,5 @@
 #include "grid.h"
 
-
 using namespace tictactoe;
 
 void grid::resetGrid()
